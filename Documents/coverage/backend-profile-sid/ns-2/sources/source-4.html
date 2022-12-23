@@ -1,0 +1,96 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > FriendsRepository</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">coms309.Friends</a>
+</div>
+
+<h1>Coverage Summary for Class: FriendsRepository (coms309.Friends)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+</tr>
+<tr>
+  <td class="name">FriendsRepository</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package coms309.Friends;
+&nbsp;
+&nbsp;import java.util.List;
+&nbsp;
+&nbsp;import org.springframework.data.jpa.repository.JpaRepository;
+&nbsp;import org.springframework.data.jpa.repository.Query;
+&nbsp;import org.springframework.data.repository.query.Param;
+&nbsp;import org.springframework.transaction.annotation.Transactional;
+&nbsp;
+&nbsp;public interface FriendsRepository extends JpaRepository&lt;Friends, Long&gt; {
+&nbsp;
+&nbsp;		Friends findById(FriendsKey id);
+&nbsp;		
+&nbsp;		boolean existsById(FriendsKey id);
+&nbsp;		
+&nbsp;		@Query(value = &quot;Select * From friends f &quot;
+&nbsp;				+ &quot;Where f.friend_id = :id and f.are_friends = 0&quot;,
+&nbsp;				nativeQuery = true)
+&nbsp;		List&lt;Friends&gt; findByFriendIdAndAreFriendsFalse(@Param(&quot;id&quot;) int id);
+&nbsp;		
+&nbsp;		@Query(value = &quot;Select * From friends f &quot;
+&nbsp;				+ &quot;Where (f.user_id = :id or f.friend_id = :id) and f.are_friends = 1&quot;, 
+&nbsp;				nativeQuery = true)
+&nbsp;		List&lt;Friends&gt; findByUserIdOrFriendIdAndAreFriendsTrue(@Param(&quot;id&quot;) int id);
+&nbsp;		
+&nbsp;		@Transactional
+&nbsp;		void deleteById(FriendsKey id);
+&nbsp;	
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2022-12-08 19:34</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="GREY">#FF424242</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="ISU_GOLD">#F1BE48</color>
+    <color name="ISU_RED">#C8102E</color>
+    <color name="ISU_PANTONE">#CAC7A7</color>
+    <color name="PRINCETON_ORANGE">#EE8434</color>
+    <color name="PEACHY_RED">#C95D63</color>
+    <color name="ENGLISH_LAVENDER">#AE8799</color>
+    <color name="GLAUCOUS_BLUE">#717EC3</color>
+    <color name="ROYAL_BLUE_LIGHT">#496DDB</color>
+
+    <color name="CURIOUS_BLUE">#2685C2</color>
+    <color name="CURIOUS_BLUE2">#a3e8f4</color>
+    <color name="CURIOUS_PURPLE">#9b64c0</color>
+    <color name="CURIOUS_PURPLE2">#af83cc</color>
+    <color name="CURIOUS_GREY">#354f52</color>
+    <color name="PASTEL_ORANGE">#ffb347</color>
+
+    <color name="Stardust">#E1F6FF</color>
+    <color name="Glacier">#CDF0FF</color>
+    <color name="Meltwater">#B9EBFF</color>
+    <color name="Lambent">#A5E5FF</color>
+    <color name="Aquamarine">#91E0FF</color>
+    <color name="Bluesky">#73D7FF</color>
+    <color name="Ocean">#55CEFF</color>
+    <color name="Azure">#37c6FF</color>
+    <color name="Rainyday">#19BDFF</color>
+    <color name="Cerulean">#00ABF0</color>
+    <color name="Denim">#0072A0</color>
+    <color name="Storm">#004764</color>
+</resources>

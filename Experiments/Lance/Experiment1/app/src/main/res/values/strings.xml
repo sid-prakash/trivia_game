@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Experiment1</string>
+    <string name="action_settings">Settings</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">On this Fragment I have got familiar with the design view.</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="extra">Extra Button</string>
+    <string name="extraClick">You click the extra button</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">My very own fragment</string>
+    <string name="away">To my own fragment</string>
+</resources>

@@ -1,0 +1,51 @@
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory app:title="@string/messages_header">
+
+        <EditTextPreference
+            app:key="signature"
+            app:title="@string/signature_title"
+            app:useSimpleSummaryProvider="true" />
+
+        <ListPreference
+            app:defaultValue="reply"
+            app:entries="@array/reply_entries"
+            app:entryValues="@array/reply_values"
+            app:key="reply"
+            app:title="@string/reply_title"
+            app:useSimpleSummaryProvider="true" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory app:title="@string/sync_header">
+
+        <SwitchPreferenceCompat
+            app:key="sync"
+            app:title="@string/sync_title" />
+
+        <SwitchPreferenceCompat
+            app:dependency="sync"
+            app:key="attachment"
+            app:summaryOff="@string/attachment_summary_off"
+            app:summaryOn="@string/attachment_summary_on"
+            app:title="@string/attachment_title" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory>
+        <CheckBoxPreference
+            app:key="check1"
+            app:title="Did I make this?"
+            app:summaryOn="Android Studio's couldn't have made a check box this cool"
+            app:summaryOff="Really? Are you sure?"
+            >
+        </CheckBoxPreference>
+        <EditTextPreference
+            app:key="textbox1"
+            app:title="Who made this then"
+            app:dependency="check1"
+            ></EditTextPreference>
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

@@ -1,0 +1,158 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > FriendsKey</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">coms309.Friends</a>
+</div>
+
+<h1>Coverage Summary for Class: FriendsKey (coms309.Friends)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">FriendsKey</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/18)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package coms309.Friends;
+&nbsp;
+&nbsp;import java.io.Serializable;
+&nbsp;
+&nbsp;import javax.persistence.Column;
+&nbsp;import javax.persistence.Embeddable;
+&nbsp;
+&nbsp;@Embeddable
+&nbsp;public class FriendsKey implements Serializable {
+&nbsp;
+&nbsp;	@Column(name = &quot;user_id&quot;)
+&nbsp;	int userId;
+&nbsp;	
+&nbsp;	@Column(name = &quot;friend_id&quot;)
+&nbsp;	int friendId;
+&nbsp;	
+<b class="nc">&nbsp;	public FriendsKey(int userId, int friendId) {</b>
+<b class="nc">&nbsp;		this.userId = userId;</b>
+<b class="nc">&nbsp;		this.friendId = friendId;</b>
+&nbsp;	}
+&nbsp;	
+<b class="nc">&nbsp;	public FriendsKey() {</b>
+&nbsp;		
+&nbsp;	}
+&nbsp;	
+&nbsp;	public FriendsKey reverse() {
+<b class="nc">&nbsp;		int temp = this.userId;</b>
+<b class="nc">&nbsp;		this.userId = this.friendId;</b>
+<b class="nc">&nbsp;		this.friendId = temp;</b>
+&nbsp;		
+<b class="nc">&nbsp;		return this;</b>
+&nbsp;	}
+&nbsp;	
+&nbsp;	@Override
+&nbsp;	public boolean equals(Object obj) {
+<b class="nc">&nbsp;		if (obj == null) {</b>
+<b class="nc">&nbsp;			return false;</b>
+&nbsp;		}
+&nbsp;		
+<b class="nc">&nbsp;		if (obj.getClass() != this.getClass()) {</b>
+<b class="nc">&nbsp;			return false;</b>
+&nbsp;		}
+&nbsp;		
+<b class="nc">&nbsp;		final FriendsKey other = (FriendsKey) obj;</b>
+<b class="nc">&nbsp;		if (this.userId != other.userId) {</b>
+<b class="nc">&nbsp;			return false;</b>
+&nbsp;		}
+&nbsp;		
+<b class="nc">&nbsp;		if (this.friendId != other.friendId) {</b>
+<b class="nc">&nbsp;			return false;</b>
+&nbsp;		}
+&nbsp;		
+<b class="nc">&nbsp;		return true;</b>
+&nbsp;	}
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2022-12-08 19:34</div>
+</div>
+</body>
+</html>

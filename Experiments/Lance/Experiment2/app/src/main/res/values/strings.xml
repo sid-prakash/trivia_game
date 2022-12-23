@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Experiment2</string>
+    <string name="tab_text_1">8/25</string>
+    <string name="tab_text_2">8/30</string>
+    <string name="tab_text_3">9/6</string>
+    <string name="topic_one">The topic today is Nonlocal Games.</string>
+    <string name="topic_two">The topic today is a specific nonlocal game called the CHSH games.</string>
+    <string name="topic_three">The topic today is background on computing.</string>
+</resources>

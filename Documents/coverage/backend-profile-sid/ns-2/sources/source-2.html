@@ -1,0 +1,207 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > FriendsController</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">coms309.Friends</a>
+</div>
+
+<h1>Coverage Summary for Class: FriendsController (coms309.Friends)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">FriendsController</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    20%
+  </span>
+  <span class="absValue">
+    (1/5)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    4%
+  </span>
+  <span class="absValue">
+    (1/25)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package coms309.Friends;
+&nbsp;
+&nbsp;import java.util.List;
+&nbsp;import java.util.stream.Collectors;
+&nbsp;
+&nbsp;import io.swagger.annotations.*;
+&nbsp;import org.springframework.beans.factory.annotation.Autowired;
+&nbsp;import org.springframework.web.bind.annotation.DeleteMapping;
+&nbsp;import org.springframework.web.bind.annotation.GetMapping;
+&nbsp;import org.springframework.web.bind.annotation.PathVariable;
+&nbsp;import org.springframework.web.bind.annotation.PostMapping;
+&nbsp;import org.springframework.web.bind.annotation.RestController;
+&nbsp;
+&nbsp;import coms309.Profile.Profile;
+&nbsp;import coms309.Profile.ProfileRepository;
+&nbsp;
+&nbsp;@Api(value = &quot;FriendsController&quot;, description = &quot;REST APIs related to Friends Entity&quot;)
+&nbsp;@RestController
+<b class="fc">&nbsp;public class FriendsController {</b>
+&nbsp;	
+&nbsp;	@Autowired
+&nbsp;	FriendsRepository friendsRepository;
+&nbsp;	
+&nbsp;	@Autowired
+&nbsp;	ProfileRepository profileRepository;
+&nbsp;
+&nbsp;	@ApiOperation(value = &quot;Create Friend request or creates Friendship if reciprocated&quot;)
+&nbsp;	@ApiResponses(value = {
+&nbsp;			@ApiResponse(code = 200, message = &quot;Success|OK&quot;),
+&nbsp;			@ApiResponse(code = 401, message = &quot;not authorized&quot;),
+&nbsp;			@ApiResponse(code = 403, message = &quot;forbidden&quot;),
+&nbsp;			@ApiResponse(code = 404, message = &quot;not found&quot;) })
+&nbsp;	@PostMapping(&quot;/friends/{userId}/{friendUsername}&quot;)
+&nbsp;	public String createFriends(@ApiParam(value = &quot;id of User&quot;) @PathVariable String userId,
+&nbsp;								@ApiParam(value = &quot;Name of potential Friend&quot;)@PathVariable String friendUsername) {
+<b class="nc">&nbsp;		Profile user = profileRepository.findById(Integer.parseInt(userId));</b>
+<b class="nc">&nbsp;		Profile friend = profileRepository.findByUsername(friendUsername);</b>
+&nbsp;		
+<b class="nc">&nbsp;		if (user == friend) {</b>
+<b class="nc">&nbsp;			return &quot;failure:cannot friend self&quot;;</b>
+&nbsp;		}
+&nbsp;		
+<b class="nc">&nbsp;		FriendsKey id = new FriendsKey(friend.getId(), user.getId());</b>
+&nbsp;		
+<b class="nc">&nbsp;		if (friendsRepository.existsById(id)) {</b>
+<b class="nc">&nbsp;			Friends friends = friendsRepository.findById(id);</b>
+<b class="nc">&nbsp;			friends.setAreFriends();</b>
+<b class="nc">&nbsp;			friendsRepository.save(friends);</b>
+<b class="nc">&nbsp;		} else if (!friendsRepository.existsById(id.reverse())) {</b>
+<b class="nc">&nbsp;			friendsRepository.save(new Friends(user, friend));</b>
+&nbsp;		}
+&nbsp;		
+<b class="nc">&nbsp;		return &quot;success&quot;;</b>
+&nbsp;	}
+&nbsp;
+&nbsp;	@ApiOperation(value = &quot;Get list of all Friends for specific User&quot;)
+&nbsp;	@ApiResponses(value = {
+&nbsp;			@ApiResponse(code = 200, message = &quot;Success|OK&quot;),
+&nbsp;			@ApiResponse(code = 401, message = &quot;not authorized&quot;),
+&nbsp;			@ApiResponse(code = 403, message = &quot;forbidden&quot;),
+&nbsp;			@ApiResponse(code = 404, message = &quot;not found&quot;) })
+&nbsp;	@GetMapping(&quot;/friends/{userId}&quot;)
+&nbsp;	public List&lt;Profile&gt; getFriends(@ApiParam(value = &quot;id of User&quot;) @PathVariable String userId) {
+<b class="nc">&nbsp;		int id = Integer.parseInt(userId);</b>
+&nbsp;		
+<b class="nc">&nbsp;		return friendsRepository.findByUserIdOrFriendIdAndAreFriendsTrue(id)</b>
+<b class="nc">&nbsp;			.stream().map(f -&gt; f.getUnMatchingProfile(id))</b>
+<b class="nc">&nbsp;			.collect(Collectors.toList());</b>
+&nbsp;	}
+&nbsp;
+&nbsp;	@ApiOperation(value = &quot;Get list of Friend requests for specific User&quot;)
+&nbsp;	@ApiResponses(value = {
+&nbsp;			@ApiResponse(code = 200, message = &quot;Success|OK&quot;),
+&nbsp;			@ApiResponse(code = 401, message = &quot;not authorized&quot;),
+&nbsp;			@ApiResponse(code = 403, message = &quot;forbidden&quot;),
+&nbsp;			@ApiResponse(code = 404, message = &quot;not found&quot;) })
+&nbsp;	@GetMapping(&quot;/friends/requests/{userId}&quot;)
+&nbsp;	public List&lt;Profile&gt; getFriendsRequests(@ApiParam(&quot;id of User&quot;) @PathVariable String userId) {
+<b class="nc">&nbsp;		int id = Integer.parseInt(userId);</b>
+&nbsp;		
+<b class="nc">&nbsp;		return friendsRepository.findByFriendIdAndAreFriendsFalse(id)</b>
+<b class="nc">&nbsp;			.stream().map(f-&gt; f.getUser())</b>
+<b class="nc">&nbsp;			.collect(Collectors.toList());</b>
+&nbsp;	}
+&nbsp;
+&nbsp;	@ApiOperation(value = &quot;Delete Friendship between two Users&quot;)
+&nbsp;	@ApiResponses(value = {
+&nbsp;			@ApiResponse(code = 200, message = &quot;Success|OK&quot;),
+&nbsp;			@ApiResponse(code = 401, message = &quot;not authorized&quot;),
+&nbsp;			@ApiResponse(code = 403, message = &quot;forbidden&quot;),
+&nbsp;			@ApiResponse(code = 404, message = &quot;not found&quot;) })
+&nbsp;	@DeleteMapping(&quot;/friends/{userId}/{friendId}&quot;)
+&nbsp;	public String deleteFriends(@ApiParam(value = &quot;id of first User&quot;) @PathVariable String userId,
+&nbsp;								@ApiParam(value = &quot;id of second User&quot;) @PathVariable String friendId) {
+<b class="nc">&nbsp;		FriendsKey id = new FriendsKey(Integer.parseInt(userId), Integer.parseInt(friendId));</b>
+&nbsp;
+<b class="nc">&nbsp;		friendsRepository.deleteById(id);</b>
+<b class="nc">&nbsp;		friendsRepository.deleteById(id.reverse());</b>
+&nbsp;		
+<b class="nc">&nbsp;		return &quot;success&quot;;</b>
+&nbsp;	}
+&nbsp;	
+&nbsp;}
+&nbsp;
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2022-12-08 19:34</div>
+</div>
+</body>
+</html>

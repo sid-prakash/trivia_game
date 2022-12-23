@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/Lambent"
+    tools:context=".JoinGame">
+
+    <TextView
+        android:id="@+id/join_joinLabel"
+        android:layout_width="179dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/join_lobby"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.155"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/joinGame_join"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:layout_marginEnd="28dp"
+        android:background="@color/Cerulean"
+        android:text="@string/join"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/join_lobbyNamePlainText"
+        app:layout_constraintVertical_bias="0.604" />
+
+    <Button
+        android:id="@+id/joinGame_ESC"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="52dp"
+        android:background="@color/PASTEL_ORANGE"
+        android:text="@string/esc"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/joinGame_join"
+        app:layout_constraintHorizontal_bias="0.445"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/join_lobbyNamePlainText"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/join_displayLobbies"
+        android:layout_width="343dp"
+        android:layout_height="364dp"
+        android:layout_marginTop="16dp"
+        android:text="No Active Lobbies"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.521"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/join_joinLabel" />
+
+    <EditText
+        android:id="@+id/join_lobbyNamePlainText"
+        android:layout_width="344dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="4dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.552"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/join_enterLobbyName" />
+
+    <TextView
+        android:id="@+id/join_enterLobbyName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Enter Lobby Name:"
+        android:textColor="@color/GREY"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.126"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/join_displayLobbies" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

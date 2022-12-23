@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/Login">
+
+    <fragment
+        android:id="@+id/Login"
+        android:name="com.example.app.Login"
+        android:label="@string/login_fragment_label"
+        tools:layout="@layout/activity_login">
+
+        <action
+            android:id="@+id/action_FirstFragment_to_SecondFragment"
+            app:destination="@id/CreateAccountScreen" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/CreateAccountScreen"
+        android:name="com.example.app.CreateAccount"
+        android:label="@string/create_account_fragment_label"
+        tools:layout="@layout/activity_create_account">
+
+        <action
+            android:id="@+id/action_SecondFragment_to_FirstFragment"
+            app:destination="@id/Login" />
+        <action
+            android:id="@+id/action_CreateAccountFragment_to_dashboard"
+            app:destination="@id/dashboard" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/dashboard"
+        android:name="com.example.app.Dashboard"
+        android:label="fragment_dashboard"
+        tools:layout="@layout/activity_dashboard" >
+        <action
+            android:id="@+id/dashboard_to_profile"
+            app:destination="@id/profile" />
+        <action
+            android:id="@+id/action_dashboard_to_LoginFragment"
+            app:destination="@id/Login" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/profile"
+        android:name="com.example.app.Profile"
+        android:label="fragment_profile"
+        tools:layout="@layout/activity_profile" >
+        <action
+            android:id="@+id/action_profile_to_dashboard"
+            app:destination="@id/dashboard" />
+    </fragment>
+</navigation>

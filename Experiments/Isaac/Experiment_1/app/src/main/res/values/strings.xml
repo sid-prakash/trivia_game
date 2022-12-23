@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Experiment1_button</string>
+    <string name="isaac_s_favorite_button">Isaac\'s Favorite Button</string>
+    <string name="do_not_touch">Do Not Touch</string>
+</resources>

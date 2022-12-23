@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/profile_icon_constraint"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/Lambent"
+    tools:context=".Dashboard">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <Button
+        android:id="@+id/dashboard_profile"
+        android:layout_width="150dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="12dp"
+        android:backgroundTint="@color/ISU_PANTONE"
+        android:text="@string/profile"
+        app:layout_constraintBottom_toTopOf="@+id/dashboard_addFriends"
+        app:layout_constraintEnd_toStartOf="@+id/dashboard_hostGame"
+        app:layout_constraintHorizontal_bias="0.416"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/dashboard_logout"
+        android:layout_width="150dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="@color/PASTEL_ORANGE"
+        android:text="@string/logout"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/dashboard_hostGame"
+        app:layout_constraintHorizontal_bias="0.416"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/dashboard_addFriends"
+        android:layout_width="150dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="8dp"
+        android:backgroundTint="@color/ISU_PANTONE"
+        android:text="@string/add_friend"
+        app:layout_constraintBottom_toTopOf="@+id/dashboard_logout"
+        app:layout_constraintEnd_toStartOf="@+id/dashboard_hostGame"
+        app:layout_constraintHorizontal_bias="0.416"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/dashboard_joinGame"
+        android:layout_width="362dp"
+        android:layout_height="97dp"
+        android:layout_marginBottom="12dp"
+        android:backgroundTint="@color/Cerulean"
+        android:text="@string/join_lobby"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/dashboard_hostGame"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.51"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/dashboard_hostGame"
+        android:layout_width="177dp"
+        android:layout_height="206dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="@color/ROYAL_BLUE_LIGHT"
+        android:text="@string/host_lobby"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/dashboard_label"
+        android:layout_width="126dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="64dp"
+        android:text="@string/dashboard"
+        android:textColor="@color/GREY"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/dashboard_textView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.143"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/dashboard_textView"
+        android:layout_width="333dp"
+        android:layout_height="255dp"
+        android:layout_marginBottom="28dp"
+        android:text="post game summary and user stats:"
+        app:layout_constraintBottom_toTopOf="@+id/dashboard_joinGame"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
